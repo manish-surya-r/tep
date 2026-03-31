@@ -1,8 +1,9 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js";
 
 const state = {
-  newsletter: null,
-  selectedCategory: null,
+  articlesData: null,
+  currentCategory: "all",
+  visibleCount: 6,
 };
 
 async function loadJSON(path) {
@@ -11,10 +12,68 @@ async function loadJSON(path) {
   return res.json();
 }
 
-async function loadMarkdown(path) {
-  const res = await fetch(path);
-  if (!res.ok) throw new Error(`Could not load ${path}`);
-  return res.text();
+function byRecent(a, b) {
+  return new Date(b.date) - new Date(a.date);
+}
+
+function getFilteredArticles() {
+  const list = [...state.articlesData.articles].sort(byRecent);
+  if (state.currentCategory === "all") return list;
+  return list.filter((item) => item.category === state.currentCategory);
+}
+
+function renderArticleCategories() {
+  const target = document.getElementById("article-categories");
+  target.innerHTML = "";
+  state.articlesData.categories.forEach((category) => {
+    const button = document.createElement("button");
+    button.className = `chip ${state.currentCategory === category.id ? "active" : ""}`;
+    button.textContent = category.name;
+    button.addEventListener("click", () => {
+      state.currentCategory = category.id;
+      state.visibleCount = 6;
+      renderArticleCategories();
+      renderArticleList();
+    });
+    target.append(button);
+  });
+}
+
+function renderArticleList() {
+  const target = document.getElementById("article-list");
+  const moreBtn = document.getElementById("article-more");
+  target.innerHTML = "";
+
+  const filtered = getFilteredArticles();
+  const visible = filtered.slice(0, state.visibleCount);
+
+  visible.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${item.title}</h3>
+      <p>${item.summary}</p>
+      <p class="meta">${item.date}</p>
+      <button>Read article</button>
+    `;
+
+    card.querySelector("button").addEventListener("click", () => {
+      const url = `article.html?type=articles&id=${encodeURIComponent(item.id)}`;
+      window.open(url, "_blank", "noopener");
+    });
+    target.append(card);
+  });
+
+  if (filtered.length > state.visibleCount) {
+    moreBtn.classList.remove("hidden");
+  } else {
+    moreBtn.classList.add("hidden");
+  }
+
+  moreBtn.onclick = () => {
+    state.visibleCount += 6;
+    renderArticleList();
+  };
 }
 
 function renderCourses(courses) {
@@ -33,74 +92,46 @@ function renderCourses(courses) {
   });
 }
 
-function renderNewsletterCategories() {
-  const target = document.getElementById("newsletter-categories");
+function renderNeuroscience(list) {
+  const target = document.getElementById("neuro-list");
   target.innerHTML = "";
 
-  state.newsletter.categories.forEach((category) => {
-    const button = document.createElement("button");
-    button.className = `chip ${state.selectedCategory === category.id ? "active" : ""}`;
-    button.textContent = category.name;
-    button.addEventListener("click", () => {
-      state.selectedCategory = category.id;
-      renderNewsletterCategories();
-      renderNewsletterList();
-    });
-    target.append(button);
-  });
-}
-
-function renderNewsletterList() {
-  const target = document.getElementById("newsletter-list");
-  const articleTarget = document.getElementById("newsletter-article");
-  target.innerHTML = "";
-  articleTarget.classList.add("hidden");
-
-  const articles = state.newsletter.articles.filter(
-    (item) => item.category === state.selectedCategory,
-  );
-
-  articles.forEach((item) => {
+  [...list].sort(byRecent).forEach((item) => {
     const card = document.createElement("article");
     card.className = "card";
     card.innerHTML = `
       <h3>${item.title}</h3>
       <p>${item.summary}</p>
       <p class="meta">${item.date}</p>
-      <button>Read article</button>
+      <button>Read update</button>
     `;
-    card.querySelector("button").addEventListener("click", async () => {
-      const markdown = await loadMarkdown(item.file);
-      articleTarget.innerHTML = marked.parse(markdown);
-      articleTarget.classList.remove("hidden");
-      articleTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+    card.querySelector("button").addEventListener("click", () => {
+      const url = `article.html?type=neuroscience&id=${encodeURIComponent(item.id)}`;
+      window.open(url, "_blank", "noopener");
     });
     target.append(card);
   });
 }
 
-function renderAdvancements(list) {
-  const target = document.getElementById("advancements-list");
-  const articleTarget = document.getElementById("advancements-article");
+function renderVideos(videosData) {
+  const target = document.getElementById("video-grid");
+  const underDev = document.getElementById("videos-under-dev");
   target.innerHTML = "";
 
-  list.forEach((item) => {
+  if (!videosData.videos.length) {
+    underDev.classList.remove("hidden");
+    return;
+  }
+
+  underDev.classList.add("hidden");
+  videosData.videos.forEach((video) => {
     const card = document.createElement("article");
     card.className = "card";
     card.innerHTML = `
-      <h3>${item.title}</h3>
-      <p>${item.summary}</p>
-      <p class="meta">${item.date}</p>
-      <button>Read explainer</button>
+      <h3>${video.title}</h3>
+      <p>${video.description}</p>
+      <a class="visit-link" href="${video.url}" target="_blank" rel="noopener">Watch</a>
     `;
-
-    card.querySelector("button").addEventListener("click", async () => {
-      const markdown = await loadMarkdown(item.file);
-      articleTarget.innerHTML = marked.parse(markdown);
-      articleTarget.classList.remove("hidden");
-      articleTarget.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
     target.append(card);
   });
 }
@@ -108,13 +139,8 @@ function renderAdvancements(list) {
 function initHeroScene() {
   const mount = document.getElementById("hero-canvas");
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    50,
-    mount.clientWidth / mount.clientHeight,
-    0.1,
-    1000,
-  );
-  camera.position.z = 26;
+  const camera = new THREE.PerspectiveCamera(50, mount.clientWidth / mount.clientHeight, 0.1, 1000);
+  camera.position.z = 25;
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(mount.clientWidth, mount.clientHeight);
@@ -124,18 +150,13 @@ function initHeroScene() {
   const group = new THREE.Group();
   scene.add(group);
 
-  const lineMaterial = new THREE.LineBasicMaterial({
-    color: 0x1d6f86,
-    transparent: true,
-    opacity: 0.55,
-  });
-
+  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x1b6e85, transparent: true, opacity: 0.52 });
   const points = [];
-  const total = 220;
+  const total = 260;
   for (let i = 0; i < total; i += 1) {
-    const t = (i / total) * Math.PI * 18;
-    const r = 2 + 7 * Math.sin(i * 0.33);
-    points.push(new THREE.Vector3(r * Math.cos(t), r * Math.sin(t), (i - total / 2) * 0.055));
+    const t = (i / total) * Math.PI * 20;
+    const r = 2 + 6.8 * Math.sin(i * 0.31);
+    points.push(new THREE.Vector3(r * Math.cos(t), r * Math.sin(t), (i - total / 2) * 0.05));
   }
 
   for (let i = 0; i < points.length - 1; i += 1) {
@@ -144,21 +165,19 @@ function initHeroScene() {
   }
 
   const nodeGeometry = new THREE.SphereGeometry(0.14, 12, 12);
-  const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x7cc5c2 });
-
-  points.filter((_, idx) => idx % 15 === 0).forEach((pt) => {
+  const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x77c3c1 });
+  points.filter((_, idx) => idx % 13 === 0).forEach((point) => {
     const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
-    node.position.copy(pt);
+    node.position.copy(point);
     group.add(node);
   });
 
   const animate = () => {
-    group.rotation.z += 0.0017;
-    group.rotation.x = 0.28 + Math.sin(Date.now() * 0.00045) * 0.06;
+    group.rotation.z += 0.0016;
+    group.rotation.x = 0.23 + Math.sin(Date.now() * 0.0005) * 0.07;
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
   };
-
   animate();
 
   window.addEventListener("resize", () => {
@@ -171,22 +190,20 @@ function initHeroScene() {
 async function init() {
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  const [newsletter, courses, advancements] = await Promise.all([
-    loadJSON("content/newsletter/newsletter.json"),
+  const [articlesData, courses, neuroscience, videos] = await Promise.all([
+    loadJSON("content/articles/articles.json"),
     loadJSON("content/courses/courses.json"),
     loadJSON("content/advancements/advancements.json"),
+    loadJSON("content/videos/videos.json"),
   ]);
 
-  state.newsletter = newsletter;
-  state.selectedCategory = newsletter.categories[0]?.id;
-
-  renderNewsletterCategories();
-  renderNewsletterList();
+  state.articlesData = articlesData;
+  renderArticleCategories();
+  renderArticleList();
   renderCourses(courses);
-  renderAdvancements(advancements);
+  renderNeuroscience(neuroscience);
+  renderVideos(videos);
   initHeroScene();
 }
 
-init().catch((err) => {
-  console.error(err);
-});
+init().catch((error) => console.error(error));
