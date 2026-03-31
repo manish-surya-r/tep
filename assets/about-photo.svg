@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 900'>
+  <rect width='900' height='900' fill='#eaf3f5'/>
+  <circle cx='450' cy='300' r='160' fill='#95b4bf'/>
+  <rect x='230' y='470' width='440' height='300' rx='130' fill='#b8cdd4'/>
+  <text x='450' y='840' text-anchor='middle' font-size='30' fill='#35515d' font-family='Inter,Arial'>Replace with your portrait at assets/about-photo.svg/png</text>
+</svg>

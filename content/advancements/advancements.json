@@ -1,0 +1,16 @@
+[
+  {
+    "id": "sleep-oscillations",
+    "title": "Sleep Oscillations and Memory Consolidation",
+    "summary": "A short explainer on how deep-sleep rhythms can shape memory integration.",
+    "date": "2026-03-30",
+    "file": "content/advancements/articles/sleep-oscillations.md"
+  },
+  {
+    "id": "interoception-consciousness",
+    "title": "Interoception Networks and Conscious Access",
+    "summary": "How body-signal processing may contribute to conscious state transitions.",
+    "date": "2026-03-28",
+    "file": "content/advancements/articles/interoception-consciousness.md"
+  }
+]

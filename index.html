@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Entanglement Project</title>
+    <meta
+      name="description"
+      content="The Entanglement Project — exploring brain, dreams, consciousness, intuition, and intelligence."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home">
+          <img src="assets/logo.svg" alt="The Entanglement Project logo" class="logo" />
+          <span>The Entanglement Project</span>
+        </a>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#articles">Articles</a>
+          <a href="#courses">Courses</a>
+          <a href="#videos">YouTube Videos</a>
+          <a href="#neuroscience">Neuroscience</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div id="hero-canvas" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <p class="eyebrow">Neuroscience Initiative</p>
+          <h1>Exploring Mind, Consciousness, and the Nature of Reality</h1>
+          <p>
+            A living research and education platform on brain function, dreams,
+            intuition, intelligence, and first-person inquiry.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="#articles">Explore Articles</a>
+            <a class="cta ghost" href="#videos">Visit YouTube Hub</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section container">
+        <div class="about-layout">
+          <img src="assets/about-photo.svg" alt="Founder portrait" class="about-photo" />
+          <div>
+            <h2>About</h2>
+            <p class="lead">
+              I’m Manish Surya, building The Entanglement Project to connect contemplative practice, Indian philosophy, and neuroscience into practical methods for understanding consciousness.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="articles" class="section alt-bg">
+        <div class="container">
+          <div class="section-head">
+            <h2>Articles</h2>
+          </div>
+          <div id="article-categories" class="chip-row"></div>
+          <div id="article-list" class="card-grid"></div>
+          <button id="article-more" class="more-btn hidden">More</button>
+        </div>
+      </section>
+
+      <section id="courses" class="section container">
+        <div class="section-head">
+          <h2>Courses</h2>
+          <p>
+            Practical short courses including brain exercises and eye-tracking movement practices.
+          </p>
+        </div>
+        <div id="course-grid" class="card-grid"></div>
+      </section>
+
+      <section id="videos" class="section alt-bg">
+        <div class="container">
+          <div class="section-head">
+            <h2>YouTube Videos</h2>
+            <p>
+              Channel: <a href="https://www.youtube.com/@the-entanglement-project" target="_blank" rel="noopener">@the-entanglement-project</a>
+            </p>
+          </div>
+          <div id="videos-under-dev" class="under-dev hidden">
+            This section is under development. Videos will appear here soon.
+          </div>
+          <div id="video-grid" class="card-grid"></div>
+        </div>
+      </section>
+
+      <section id="neuroscience" class="section container">
+        <div class="section-head">
+          <h2>Neuroscience Research Updates</h2>
+        </div>
+        <div id="neuro-list" class="card-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> The Entanglement Project</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
