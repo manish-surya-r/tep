@@ -4,74 +4,60 @@ A GitHub Pages-ready static website for **The Entanglement Project**.
 
 ## Sections
 
-- Home (with Three.js hero animation)
+- Home (Three.js hero)
 - About
-- Newsletter (category + markdown driven)
-- Courses (JSON driven)
-- Recent advancements in neuroscience (markdown driven)
+- Articles
+- Courses
+- YouTube Videos
+- Neuroscience Research Updates
 
 ## Customize content
 
-### 1) Newsletter categories and article metadata
+### Articles (categories + metadata)
 Edit:
 
-- `content/newsletter/newsletter.json`
+- `content/articles/articles.json`
 
-You can add/update/delete:
+You can:
 
-- category names
-- category IDs
-- article entries and linked markdown files
+- add/update/delete categories
+- keep `all` category
+- add/update/delete article entries
 
-### 2) Newsletter article bodies
-Add/update/delete markdown files in:
+Article body files are markdown files in:
 
-- `content/newsletter/articles/`
+- `content/articles/articles/`
 
-### 3) Courses
+### Courses
 Edit:
 
 - `content/courses/courses.json`
 
-Each course has:
-
-- `title`
-- `description`
-- `duration`
-- `image`
-
-### 4) Neuroscience advancements
+### Neuroscience updates
 Edit:
 
 - `content/advancements/advancements.json`
 - markdown files in `content/advancements/articles/`
 
-## Branding
+### YouTube video cards
+Edit:
 
-- Main logo path: `assets/logo.svg`
-- Color theme variables: `styles.css` under `:root`
+- `content/videos/videos.json`
 
-> If you want to use your exact official logo file, replace `assets/logo.svg` with your own logo asset and update the path in `index.html` if needed.
+When empty (`"videos": []`), the page shows an under-development message.
+
+## Branding assets
+
+- Main logo: `assets/logo.svg`
+- Founder photo placeholder: `assets/about-photo.svg` (replace with your actual photo)
+- Theme colors: `styles.css` `:root` variables
 
 ## Run locally
 
-Because this site uses `fetch()` for JSON and markdown, use a local HTTP server (not file://):
+Use a local HTTP server because the app loads JSON/Markdown with `fetch()`:
 
 ```bash
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000`.
-
-## Deploy on GitHub Pages
-
-### Option A: Deploy from main branch (root)
-
-1. Push repository to GitHub.
-2. In GitHub repo settings, open **Pages**.
-3. Set **Source** to `Deploy from a branch`.
-4. Choose branch `main` and folder `/ (root)`.
-
-### Option B: GitHub Actions
-
-You can also deploy with a GitHub Pages action workflow if you prefer CI-based publishing.
+Then open `http://localhost:8000`.

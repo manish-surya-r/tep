@@ -25,9 +25,10 @@
         </a>
         <nav>
           <a href="#about">About</a>
-          <a href="#newsletter">Newsletter</a>
+          <a href="#articles">Articles</a>
           <a href="#courses">Courses</a>
-          <a href="#advancements">Neuroscience</a>
+          <a href="#videos">YouTube Videos</a>
+          <a href="#neuroscience">Neuroscience</a>
         </nav>
       </div>
     </header>
@@ -37,44 +38,38 @@
         <div id="hero-canvas" aria-hidden="true"></div>
         <div class="container hero-content">
           <p class="eyebrow">Neuroscience Initiative</p>
-          <h1>Understanding Reality Through Brain, Dreams & Consciousness</h1>
+          <h1>Exploring Mind, Consciousness, and the Nature of Reality</h1>
           <p>
-            The Entanglement Project investigates consciousness, intuition,
-            intelligence, and the hidden architecture of human awareness by
-            blending neuroscience, contemplative practice, and Indian
-            philosophy.
+            A living research and education platform on brain function, dreams,
+            intuition, intelligence, and first-person inquiry.
           </p>
-          <a class="cta" href="#newsletter">Read the newsletter</a>
+          <div class="hero-actions">
+            <a class="cta" href="#articles">Explore Articles</a>
+            <a class="cta ghost" href="#videos">Visit YouTube Hub</a>
+          </div>
         </div>
       </section>
 
       <section id="about" class="section container">
-        <h2>About Me</h2>
-        <p>
-          I am building a long-term inquiry into the nature of mind and
-          reality. This project maps subjective experience to objective
-          neuroscience through structured experiments, reflective writing, and
-          practical training.
-        </p>
-        <ul>
-          <li>Focus: brain, dreams, consciousness, intuition, intelligence.</li>
-          <li>Method: science + first-person practice + philosophical rigor.</li>
-          <li>Goal: create practical frameworks anyone can apply.</li>
-        </ul>
-      </section>
-
-      <section id="newsletter" class="section alt-bg">
-        <div class="container">
-          <div class="section-head">
-            <h2>Newsletter & Articles</h2>
-            <p>
-              Categories and articles are loaded from JSON + Markdown files for
-              easy add/update/delete workflows.
+        <div class="about-layout">
+          <img src="assets/about-photo.svg" alt="Founder portrait" class="about-photo" />
+          <div>
+            <h2>About</h2>
+            <p class="lead">
+              I’m Manish Surya, building The Entanglement Project to connect contemplative practice, Indian philosophy, and neuroscience into practical methods for understanding consciousness.
             </p>
           </div>
-          <div id="newsletter-categories" class="chip-row"></div>
-          <div id="newsletter-list" class="card-grid"></div>
-          <article id="newsletter-article" class="markdown-card hidden"></article>
+        </div>
+      </section>
+
+      <section id="articles" class="section alt-bg">
+        <div class="container">
+          <div class="section-head">
+            <h2>Articles</h2>
+          </div>
+          <div id="article-categories" class="chip-row"></div>
+          <div id="article-list" class="card-grid"></div>
+          <button id="article-more" class="more-btn hidden">More</button>
         </div>
       </section>
 
@@ -82,32 +77,38 @@
         <div class="section-head">
           <h2>Courses</h2>
           <p>
-            Practical short courses including brain exercises and eye-tracking
-            movement practices.
+            Practical short courses including brain exercises and eye-tracking movement practices.
           </p>
         </div>
         <div id="course-grid" class="card-grid"></div>
       </section>
 
-      <section id="advancements" class="section alt-bg">
+      <section id="videos" class="section alt-bg">
         <div class="container">
           <div class="section-head">
-            <h2>Recent Advancements in Neuroscience</h2>
+            <h2>YouTube Videos</h2>
             <p>
-              Research explainers are also Markdown-based so you can grow this
-              archive over time.
+              Channel: <a href="https://www.youtube.com/@the-entanglement-project" target="_blank" rel="noopener">@the-entanglement-project</a>
             </p>
           </div>
-          <div id="advancements-list" class="card-grid"></div>
-          <article id="advancements-article" class="markdown-card hidden"></article>
+          <div id="videos-under-dev" class="under-dev hidden">
+            This section is under development. Videos will appear here soon.
+          </div>
+          <div id="video-grid" class="card-grid"></div>
         </div>
+      </section>
+
+      <section id="neuroscience" class="section container">
+        <div class="section-head">
+          <h2>Neuroscience Research Updates</h2>
+        </div>
+        <div id="neuro-list" class="card-grid"></div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
         <p>© <span id="year"></span> The Entanglement Project</p>
-        <p>Built for GitHub Pages deployment.</p>
       </div>
     </footer>
 
