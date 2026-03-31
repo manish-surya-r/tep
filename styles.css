@@ -1,0 +1,251 @@
+:root {
+  --bg: #f4fbfb;
+  --surface: #ffffff;
+  --text: #0b223d;
+  --muted: #496477;
+  --primary: #1d6f86;
+  --secondary: #7cc5c2;
+  --accent: #0f4f66;
+  --line: #d5e7ea;
+  --shadow: 0 10px 30px rgba(15, 79, 102, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: rgba(244, 251, 251, 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+}
+
+.brand {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 840px;
+  padding: 4rem 0;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  margin: 0.5rem 0;
+  line-height: 1.15;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1rem;
+  background: linear-gradient(130deg, var(--primary), var(--accent));
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.3rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.alt-bg {
+  background: #edf7f8;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head h2,
+.section h2 {
+  margin-top: 0;
+  font-size: clamp(1.5rem, 3.8vw, 2.2rem);
+}
+
+.section-head p,
+.section p {
+  color: var(--muted);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--accent);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.chip.active {
+  border-color: transparent;
+  background: var(--primary);
+  color: #fff;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin: 0.1rem 0 0.6rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card button {
+  margin-top: 0.8rem;
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.course-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-bottom: 0.75rem;
+}
+
+.meta {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.markdown-card {
+  margin-top: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.markdown-card h1,
+.markdown-card h2,
+.markdown-card h3 {
+  margin-top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.site-footer {
+  padding: 1.2rem 0;
+}
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  nav {
+    display: none;
+  }
+}

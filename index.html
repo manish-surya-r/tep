@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Entanglement Project</title>
+    <meta
+      name="description"
+      content="The Entanglement Project — exploring brain, dreams, consciousness, intuition, and intelligence."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home">
+          <img src="assets/logo.svg" alt="The Entanglement Project logo" class="logo" />
+          <span>The Entanglement Project</span>
+        </a>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#courses">Courses</a>
+          <a href="#advancements">Neuroscience</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div id="hero-canvas" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <p class="eyebrow">Neuroscience Initiative</p>
+          <h1>Understanding Reality Through Brain, Dreams & Consciousness</h1>
+          <p>
+            The Entanglement Project investigates consciousness, intuition,
+            intelligence, and the hidden architecture of human awareness by
+            blending neuroscience, contemplative practice, and Indian
+            philosophy.
+          </p>
+          <a class="cta" href="#newsletter">Read the newsletter</a>
+        </div>
+      </section>
+
+      <section id="about" class="section container">
+        <h2>About Me</h2>
+        <p>
+          I am building a long-term inquiry into the nature of mind and
+          reality. This project maps subjective experience to objective
+          neuroscience through structured experiments, reflective writing, and
+          practical training.
+        </p>
+        <ul>
+          <li>Focus: brain, dreams, consciousness, intuition, intelligence.</li>
+          <li>Method: science + first-person practice + philosophical rigor.</li>
+          <li>Goal: create practical frameworks anyone can apply.</li>
+        </ul>
+      </section>
+
+      <section id="newsletter" class="section alt-bg">
+        <div class="container">
+          <div class="section-head">
+            <h2>Newsletter & Articles</h2>
+            <p>
+              Categories and articles are loaded from JSON + Markdown files for
+              easy add/update/delete workflows.
+            </p>
+          </div>
+          <div id="newsletter-categories" class="chip-row"></div>
+          <div id="newsletter-list" class="card-grid"></div>
+          <article id="newsletter-article" class="markdown-card hidden"></article>
+        </div>
+      </section>
+
+      <section id="courses" class="section container">
+        <div class="section-head">
+          <h2>Courses</h2>
+          <p>
+            Practical short courses including brain exercises and eye-tracking
+            movement practices.
+          </p>
+        </div>
+        <div id="course-grid" class="card-grid"></div>
+      </section>
+
+      <section id="advancements" class="section alt-bg">
+        <div class="container">
+          <div class="section-head">
+            <h2>Recent Advancements in Neuroscience</h2>
+            <p>
+              Research explainers are also Markdown-based so you can grow this
+              archive over time.
+            </p>
+          </div>
+          <div id="advancements-list" class="card-grid"></div>
+          <article id="advancements-article" class="markdown-card hidden"></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> The Entanglement Project</p>
+        <p>Built for GitHub Pages deployment.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

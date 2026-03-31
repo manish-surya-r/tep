@@ -1,0 +1,38 @@
+{
+  "categories": [
+    { "id": "meditation", "name": "Meditation" },
+    { "id": "indian-philosophy", "name": "Indian Philosophy" },
+    { "id": "dreams", "name": "Dreams" },
+    { "id": "neuroscience", "name": "Neuroscience" }
+  ],
+  "articles": [
+    {
+      "title": "Meditation as a Lens for Cognitive Clarity",
+      "summary": "How focused attention reveals hidden dynamics of thought.",
+      "date": "March 2026",
+      "category": "meditation",
+      "file": "content/newsletter/articles/meditation-clarity.md"
+    },
+    {
+      "title": "Advaita and the Observer Problem",
+      "summary": "Non-dual inquiry and modern models of perception.",
+      "date": "March 2026",
+      "category": "indian-philosophy",
+      "file": "content/newsletter/articles/advaita-observer.md"
+    },
+    {
+      "title": "Dream Recall Protocols for Self-Research",
+      "summary": "A repeatable method to improve dream memory and extract patterns.",
+      "date": "March 2026",
+      "category": "dreams",
+      "file": "content/newsletter/articles/dream-recall.md"
+    },
+    {
+      "title": "Predictive Processing and Intuition",
+      "summary": "Where intuition may emerge inside hierarchical brain prediction.",
+      "date": "March 2026",
+      "category": "neuroscience",
+      "file": "content/newsletter/articles/predictive-intuition.md"
+    }
+  ]
+}
