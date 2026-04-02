@@ -25,6 +25,7 @@ function getFilteredArticles() {
 function renderArticleCategories() {
   const target = document.getElementById("article-categories");
   target.innerHTML = "";
+
   state.articlesData.categories.forEach((category) => {
     const button = document.createElement("button");
     button.className = `chip ${state.currentCategory === category.id ? "active" : ""}`;
@@ -58,18 +59,12 @@ function renderArticleList() {
     `;
 
     card.querySelector("button").addEventListener("click", () => {
-      const url = `article.html?type=articles&id=${encodeURIComponent(item.id)}`;
-      window.open(url, "_blank", "noopener");
+      window.open(`article.html?id=${encodeURIComponent(item.id)}`, "_blank", "noopener");
     });
     target.append(card);
   });
 
-  if (filtered.length > state.visibleCount) {
-    moreBtn.classList.remove("hidden");
-  } else {
-    moreBtn.classList.add("hidden");
-  }
-
+  moreBtn.classList.toggle("hidden", filtered.length <= state.visibleCount);
   moreBtn.onclick = () => {
     state.visibleCount += 6;
     renderArticleList();
@@ -79,6 +74,7 @@ function renderArticleList() {
 function renderCourses(courses) {
   const target = document.getElementById("course-grid");
   target.innerHTML = "";
+
   courses.forEach((course) => {
     const card = document.createElement("article");
     card.className = "card";
@@ -87,6 +83,23 @@ function renderCourses(courses) {
       <h3>${course.title}</h3>
       <p>${course.description}</p>
       <p class="meta">Time to complete: ${course.duration}</p>
+      <a class="visit-link" href="${course.url}" target="_blank" rel="noopener">Open course</a>
+    `;
+    target.append(card);
+  });
+}
+
+function renderResources(resources) {
+  const target = document.getElementById("resource-grid");
+  target.innerHTML = "";
+
+  resources.forEach((resource) => {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${resource.title}</h3>
+      <p>${resource.description}</p>
+      <a class="visit-link" href="${resource.url}" target="_blank" rel="noopener">Visit resource</a>
     `;
     target.append(card);
   });
@@ -103,12 +116,8 @@ function renderNeuroscience(list) {
       <h3>${item.title}</h3>
       <p>${item.summary}</p>
       <p class="meta">${item.date}</p>
-      <button>Read update</button>
+      <a class="visit-link" href="${item.url}" target="_blank" rel="noopener">Read source</a>
     `;
-    card.querySelector("button").addEventListener("click", () => {
-      const url = `article.html?type=neuroscience&id=${encodeURIComponent(item.id)}`;
-      window.open(url, "_blank", "noopener");
-    });
     target.append(card);
   });
 }
@@ -139,8 +148,8 @@ function renderVideos(videosData) {
 function initHeroScene() {
   const mount = document.getElementById("hero-canvas");
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, mount.clientWidth / mount.clientHeight, 0.1, 1000);
-  camera.position.z = 25;
+  const camera = new THREE.PerspectiveCamera(48, mount.clientWidth / mount.clientHeight, 0.1, 1000);
+  camera.position.z = 26;
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(mount.clientWidth, mount.clientHeight);
@@ -150,31 +159,31 @@ function initHeroScene() {
   const group = new THREE.Group();
   scene.add(group);
 
-  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x1b6e85, transparent: true, opacity: 0.52 });
+  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x3b4a77, transparent: true, opacity: 0.45 });
   const points = [];
-  const total = 260;
+  const total = 280;
+
   for (let i = 0; i < total; i += 1) {
-    const t = (i / total) * Math.PI * 20;
-    const r = 2 + 6.8 * Math.sin(i * 0.31);
+    const t = (i / total) * Math.PI * 19;
+    const r = 2 + 7 * Math.sin(i * 0.31);
     points.push(new THREE.Vector3(r * Math.cos(t), r * Math.sin(t), (i - total / 2) * 0.05));
   }
 
   for (let i = 0; i < points.length - 1; i += 1) {
-    const geom = new THREE.BufferGeometry().setFromPoints([points[i], points[i + 1]]);
-    group.add(new THREE.Line(geom, lineMaterial));
+    group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([points[i], points[i + 1]]), lineMaterial));
   }
 
-  const nodeGeometry = new THREE.SphereGeometry(0.14, 12, 12);
-  const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x77c3c1 });
-  points.filter((_, idx) => idx % 13 === 0).forEach((point) => {
+  const nodeGeometry = new THREE.SphereGeometry(0.13, 12, 12);
+  const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x6f86c8 });
+  points.filter((_, idx) => idx % 12 === 0).forEach((point) => {
     const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
     node.position.copy(point);
     group.add(node);
   });
 
   const animate = () => {
-    group.rotation.z += 0.0016;
-    group.rotation.x = 0.23 + Math.sin(Date.now() * 0.0005) * 0.07;
+    group.rotation.z += 0.0015;
+    group.rotation.x = 0.22 + Math.sin(Date.now() * 0.00043) * 0.07;
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
   };
@@ -190,10 +199,11 @@ function initHeroScene() {
 async function init() {
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  const [articlesData, courses, neuroscience, videos] = await Promise.all([
+  const [articlesData, courses, neuroscience, resources, videos] = await Promise.all([
     loadJSON("content/articles/articles.json"),
     loadJSON("content/courses/courses.json"),
     loadJSON("content/advancements/advancements.json"),
+    loadJSON("content/resources/resources.json"),
     loadJSON("content/videos/videos.json"),
   ]);
 
@@ -201,6 +211,7 @@ async function init() {
   renderArticleCategories();
   renderArticleList();
   renderCourses(courses);
+  renderResources(resources);
   renderNeuroscience(neuroscience);
   renderVideos(videos);
   initHeroScene();

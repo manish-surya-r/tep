@@ -1,16 +1,30 @@
 [
   {
-    "id": "sleep-oscillations",
-    "title": "Sleep Oscillations and Memory Consolidation",
-    "summary": "A short explainer on how deep-sleep rhythms can shape memory integration.",
-    "date": "2026-03-30",
-    "file": "content/advancements/articles/sleep-oscillations.md"
+    "id": "landmark-consciousness-test",
+    "title": "Landmark study tests leading consciousness theories",
+    "summary": "A large adversarial collaboration evaluated signatures predicted by major frameworks and found mixed support rather than a clean winner.",
+    "date": "2025-05-01",
+    "url": "https://www.birmingham.ac.uk/news/2025/landmark-study-puts-leading-theories-of-consciousness-to-the-test-neither-comes-out-unscathed"
   },
   {
-    "id": "interoception-consciousness",
-    "title": "Interoception Networks and Conscious Access",
-    "summary": "How body-signal processing may contribute to conscious state transitions.",
-    "date": "2026-03-28",
-    "file": "content/advancements/articles/interoception-consciousness.md"
+    "id": "allen-origins-consciousness",
+    "title": "Allen Institute experiment on the origins of consciousness",
+    "summary": "A coordinated multi-site experiment mapped brain-wide activity and challenged narrow assumptions about single-region explanations.",
+    "date": "2025-04-30",
+    "url": "https://alleninstitute.org/news/landmark-experiment-sheds-new-light-on-the-origins-of-consciousness/"
+  },
+  {
+    "id": "nature-consciousness-review",
+    "title": "A modern neuroscience review of consciousness",
+    "summary": "This Nature Reviews Neuroscience article synthesizes empirical progress, computational framings, and unresolved theory-level questions.",
+    "date": "2022-06-01",
+    "url": "https://www.nature.com/articles/s41583-022-00587-4"
+  },
+  {
+    "id": "pubmed-consciousness-paper",
+    "title": "Recent PubMed-indexed consciousness research",
+    "summary": "A 2024 paper adding evidence to mechanistic discussions around conscious access and distributed neural dynamics.",
+    "date": "2024-03-01",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38447578/"
   }
 ]

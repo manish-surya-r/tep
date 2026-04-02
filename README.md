@@ -1,63 +1,36 @@
 # The Entanglement Project Website
 
-A GitHub Pages-ready static website for **The Entanglement Project**.
+A static, GitHub Pages-ready site inspired by a clean research-foundation style layout.
 
 ## Sections
 
-- Home (Three.js hero)
+- Home
 - About
 - Articles
 - Courses
-- YouTube Videos
+- Resources
+- Videos
 - Neuroscience Research Updates
 
-## Customize content
+## Content model (easy to customize)
 
-### Articles (categories + metadata)
-Edit:
+- Articles metadata: `content/articles/articles.json`
+- Article markdown files: `content/articles/articles/*.md`
+- Courses: `content/courses/courses.json`
+- Resources: `content/resources/resources.json`
+- Videos: `content/videos/videos.json`
+- Neuroscience updates: `content/advancements/advancements.json`
 
-- `content/articles/articles.json`
+## Notes
 
-You can:
-
-- add/update/delete categories
-- keep `all` category
-- add/update/delete article entries
-
-Article body files are markdown files in:
-
-- `content/articles/articles/`
-
-### Courses
-Edit:
-
-- `content/courses/courses.json`
-
-### Neuroscience updates
-Edit:
-
-- `content/advancements/advancements.json`
-- markdown files in `content/advancements/articles/`
-
-### YouTube video cards
-Edit:
-
-- `content/videos/videos.json`
-
-When empty (`"videos": []`), the page shows an under-development message.
-
-## Branding assets
-
-- Main logo: `assets/logo.svg`
-- Founder photo placeholder: `assets/about-photo.svg` (replace with your actual photo)
-- Theme colors: `styles.css` `:root` variables
+- Each section uses a light background and changes tone on hover.
+- Article cards open in a separate tab (`article.html`) where visitors can switch between all articles.
+- Replace `assets/about-photo.svg` with your real portrait file when ready.
 
 ## Run locally
-
-Use a local HTTP server because the app loads JSON/Markdown with `fetch()`:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Open: `http://localhost:8000`

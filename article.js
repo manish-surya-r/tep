@@ -12,24 +12,16 @@ async function loadMarkdown(path) {
 
 function getQuery() {
   const params = new URLSearchParams(window.location.search);
-  return {
-    type: params.get("type") || "articles",
-    id: params.get("id"),
-  };
+  return { id: params.get("id") };
 }
 
 async function init() {
   const query = getQuery();
-  const file = query.type === "neuroscience" ? "content/advancements/advancements.json" : "content/articles/articles.json";
-  const data = await loadJSON(file);
-  const list = (query.type === "neuroscience" ? data : data.articles).slice();
-
-  const title = document.getElementById("viewer-title");
-  title.textContent = query.type === "neuroscience" ? "Neuroscience Updates" : "Articles";
+  const data = await loadJSON("content/articles/articles.json");
+  const list = data.articles.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const nav = document.getElementById("article-nav");
   const content = document.getElementById("article-content");
-
   const currentId = query.id || list[0]?.id;
 
   async function openArticle(id) {
@@ -39,7 +31,7 @@ async function init() {
       return;
     }
 
-    history.replaceState({}, "", `article.html?type=${query.type}&id=${encodeURIComponent(selected.id)}`);
+    history.replaceState({}, "", `article.html?id=${encodeURIComponent(selected.id)}`);
     const markdown = await loadMarkdown(selected.file);
     content.innerHTML = marked.parse(markdown);
 
@@ -48,7 +40,7 @@ async function init() {
     });
   }
 
-  list.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach((item) => {
+  list.forEach((item) => {
     const button = document.createElement("button");
     button.type = "button";
     button.dataset.id = item.id;

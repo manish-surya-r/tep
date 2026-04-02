@@ -1,11 +1,27 @@
-# Lucid Dream Thresholds
+# Lucid Dream Thresholds and State Recognition
 
-Lucidity often emerges when dream anomalies become obvious enough to trigger metacognition.
+Lucid dreams often begin when a dreamer detects an inconsistency strong enough to trigger metacognition: “This is a dream.” The challenge is training recognition before the dream collapses.
 
-## Track these markers
+## Common threshold cues
 
-- Time distortion
-- Unusual sensory shifts
-- Repeated symbolic patterns
+- Impossible spatial transitions.
+- Unstable text and clocks.
+- Emotional intensity disconnected from context.
 
-Tracking these can train earlier recognition of dream-state transitions.
+## Training sequence
+
+1. Daytime reality checks tied to stable cues (doorways, phone unlocks).
+2. Evening intention rehearsal (“When anomalies appear, I notice and stabilize.”)
+3. Morning recall logging with anomaly tags.
+
+## Stabilization after lucidity
+
+- Slow down movement.
+- Rub hands or focus on texture.
+- Avoid immediate high-arousal actions.
+
+These techniques reduce abrupt awakenings and extend usable lucid duration.
+
+## Scientific value
+
+Lucid dreaming is a rare condition where reflective awareness appears within internally generated virtual experience. That makes it a uniquely informative window into agency, self-modeling, and conscious control.
