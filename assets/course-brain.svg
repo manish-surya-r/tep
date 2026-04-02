@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'>
+<defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='#1d6f86'/><stop offset='1' stop-color='#7cc5c2'/></linearGradient></defs>
+<rect width='800' height='450' fill='#edf7f8'/>
+<circle cx='310' cy='220' r='120' fill='url(#g)' opacity='0.2'/>
+<path d='M250 220c0-58 42-100 100-100s100 42 100 100-42 100-100 100-100-42-100-100z' fill='none' stroke='#1d6f86' stroke-width='8'/>
+<path d='M350 120v200M300 145c25 10 50 10 75 0M300 295c25-10 50-10 75 0M270 220h160' stroke='#1d6f86' stroke-width='7' opacity='0.7'/>
+<text x='40' y='65' font-family='Inter,Arial' font-size='42' fill='#0b223d' font-weight='700'>Brain Exercise Fundamentals</text>
+</svg>

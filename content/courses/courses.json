@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Simple Brain Exercises",
+    "description": "Daily short routines to strengthen attention, working memory, and cognitive flexibility.",
+    "duration": "45 minutes",
+    "image": "assets/course-brain.svg",
+    "url": "https://manish-surya-r.github.io/the-entanglement-project/"
+  },
+  {
+    "title": "Eye Tracking Movements and Benefits",
+    "description": "A practical introduction to eye movement drills and their potential effects on focus and emotional regulation.",
+    "duration": "30 minutes",
+    "image": "assets/course-eye.svg",
+    "url": "https://manish-surya-r.github.io/the-entanglement-project/"
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "categories": [
+    { "id": "all", "name": "All" },
+    { "id": "meditation", "name": "Meditation" },
+    { "id": "indian-philosophy", "name": "Indian Philosophy" },
+    { "id": "dreams", "name": "Dreams" },
+    { "id": "neuroscience", "name": "Neuroscience" }
+  ],
+  "articles": [
+    {
+      "id": "meditation-clarity",
+      "title": "Meditation as a Lens for Cognitive Clarity",
+      "summary": "How focused attention reveals hidden dynamics of thought.",
+      "date": "2026-03-29",
+      "category": "meditation",
+      "file": "content/articles/articles/meditation-clarity.md"
+    },
+    {
+      "id": "advaita-observer",
+      "title": "Advaita and the Observer Problem",
+      "summary": "Non-dual inquiry and modern models of perception.",
+      "date": "2026-03-27",
+      "category": "indian-philosophy",
+      "file": "content/articles/articles/advaita-observer.md"
+    },
+    {
+      "id": "dream-recall",
+      "title": "Dream Recall Protocols for Self-Research",
+      "summary": "A repeatable method to improve dream memory and extract patterns.",
+      "date": "2026-03-24",
+      "category": "dreams",
+      "file": "content/articles/articles/dream-recall.md"
+    },
+    {
+      "id": "predictive-intuition",
+      "title": "Predictive Processing and Intuition",
+      "summary": "Where intuition may emerge inside hierarchical brain prediction.",
+      "date": "2026-03-22",
+      "category": "neuroscience",
+      "file": "content/articles/articles/predictive-intuition.md"
+    },
+    {
+      "id": "attention-fatigue",
+      "title": "Attention Fatigue and Restoration",
+      "summary": "How cognitive fatigue appears and how restorative micro-practices help.",
+      "date": "2026-03-20",
+      "category": "meditation",
+      "file": "content/articles/articles/attention-fatigue.md"
+    },
+    {
+      "id": "yoga-nidra-memory",
+      "title": "Yoga Nidra and Memory Reprocessing",
+      "summary": "A conceptual bridge between guided rest and memory re-encoding.",
+      "date": "2026-03-18",
+      "category": "indian-philosophy",
+      "file": "content/articles/articles/yoga-nidra-memory.md"
+    },
+    {
+      "id": "lucid-dream-thresholds",
+      "title": "Lucid Dream Thresholds",
+      "summary": "Signals that typically precede lucidity and how to track them.",
+      "date": "2026-03-16",
+      "category": "dreams",
+      "file": "content/articles/articles/lucid-dream-thresholds.md"
+    },
+    {
+      "id": "error-minimization",
+      "title": "Prediction Error Minimization in Daily Life",
+      "summary": "Using prediction errors as practical feedback for learning and intuition.",
+      "date": "2026-03-14",
+      "category": "neuroscience",
+      "file": "content/articles/articles/error-minimization.md"
+    }
+  ]
+}

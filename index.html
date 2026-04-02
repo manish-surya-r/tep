@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Entanglement Project</title>
+    <meta
+      name="description"
+      content="The Entanglement Project — understanding brain, consciousness, and mind through neuroscience, philosophy, and computational experimentation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home">
+          <img src="assets/logo.svg" alt="The Entanglement Project logo" class="logo" />
+          <span>The Entanglement Project</span>
+        </a>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#articles">Articles</a>
+          <a href="#courses">Courses</a>
+          <a href="#resources">Resources</a>
+          <a href="#videos">Videos</a>
+          <a href="#neuroscience">Neuroscience</a>
+        </nav>
+        <div class="nav-right">
+          <a class="small-cta" href="https://www.youtube.com/@the-entanglement-project" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero interactive-section">
+        <div id="hero-canvas" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <p class="eyebrow">Computational Neuroscience Initiative</p>
+          <h1>Engineering Better Understanding of Brain, Mind, and Consciousness</h1>
+          <p>
+            We study brain systems and conscious experience with computational thinking,
+            experimental design, contemplative practice, and neuroscience research synthesis.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="#articles">Read Articles</a>
+            <a class="cta ghost" href="#neuroscience">Research Updates</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section interactive-section">
+        <div class="container about-layout">
+          <img src="assets/about-photo.svg" alt="Manish Surya" class="about-photo" />
+          <div>
+            <h2>About Me</h2>
+            <p class="lead">
+              I have a Master’s in Computer Science from Case Western Reserve University and currently work as a Computational Neuroscience Intern at the Netherlands Institute of Neuroscience; The Entanglement Project is my personal research platform for studying consciousness, mind, brain, and related fields.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="articles" class="section interactive-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Articles</h2>
+            <p>Long-form essays on neuroscience, consciousness studies, and Advaita Vedanta.</p>
+          </div>
+          <div id="article-categories" class="chip-row"></div>
+          <div id="article-list" class="card-grid"></div>
+          <button id="article-more" class="more-btn hidden">More</button>
+        </div>
+      </section>
+
+      <section id="courses" class="section interactive-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Courses</h2>
+            <p>Practical modules for attention, visual training, and cognitive stability.</p>
+          </div>
+          <div id="course-grid" class="card-grid"></div>
+        </div>
+      </section>
+
+      <section id="resources" class="section interactive-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Resources</h2>
+            <p>A customizable directory of tools, companion platforms, and learning links.</p>
+          </div>
+          <div id="resource-grid" class="card-grid"></div>
+        </div>
+      </section>
+
+      <section id="videos" class="section interactive-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>YouTube Videos</h2>
+            <p>
+              Channel: <a href="https://www.youtube.com/@the-entanglement-project" target="_blank" rel="noopener">@the-entanglement-project</a>
+            </p>
+          </div>
+          <div id="videos-under-dev" class="under-dev hidden">This section is under development. Videos will appear here soon.</div>
+          <div id="video-grid" class="card-grid"></div>
+        </div>
+      </section>
+
+      <section id="neuroscience" class="section interactive-section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Neuroscience Research Updates</h2>
+            <p>Recent high-impact papers and research reports relevant to consciousness science.</p>
+          </div>
+          <div id="neuro-list" class="card-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> The Entanglement Project</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
